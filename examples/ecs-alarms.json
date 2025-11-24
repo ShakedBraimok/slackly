@@ -1,0 +1,76 @@
+[
+  {
+    "name": "ECS-HighCPU",
+    "metric": "CPUUtilization",
+    "threshold": 85,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/ECS",
+    "statistic": "Average",
+    "dimensions": {
+      "ServiceName": "my-service",
+      "ClusterName": "my-cluster"
+    },
+    "slack_channel": "ecs-alerts"
+  },
+  {
+    "name": "ECS-HighMemory",
+    "metric": "MemoryUtilization",
+    "threshold": 90,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/ECS",
+    "statistic": "Average",
+    "dimensions": {
+      "ServiceName": "my-service",
+      "ClusterName": "my-cluster"
+    },
+    "slack_channel": "ecs-alerts"
+  },
+  {
+    "name": "ECS-TaskCount-Low",
+    "metric": "RunningTaskCount",
+    "threshold": 1,
+    "comparison_operator": "LessThanThreshold",
+    "period": 60,
+    "evaluation_periods": 2,
+    "namespace": "ECS/ContainerInsights",
+    "statistic": "Average",
+    "dimensions": {
+      "ServiceName": "my-service",
+      "ClusterName": "my-cluster"
+    },
+    "slack_channel": "critical-alerts"
+  },
+  {
+    "name": "ALB-UnhealthyTargets",
+    "metric": "UnHealthyHostCount",
+    "threshold": 1,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 60,
+    "evaluation_periods": 2,
+    "namespace": "AWS/ApplicationELB",
+    "statistic": "Maximum",
+    "dimensions": {
+      "TargetGroup": "targetgroup/my-tg/abc123",
+      "LoadBalancer": "app/my-alb/xyz789"
+    },
+    "slack_channel": "infrastructure-alerts"
+  },
+  {
+    "name": "ALB-High5xxErrors",
+    "metric": "HTTPCode_Target_5XX_Count",
+    "threshold": 50,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 1,
+    "namespace": "AWS/ApplicationELB",
+    "statistic": "Sum",
+    "dimensions": {
+      "LoadBalancer": "app/my-alb/xyz789"
+    },
+    "slack_channel": "api-alerts"
+  }
+]
