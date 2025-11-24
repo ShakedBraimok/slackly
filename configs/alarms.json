@@ -1,0 +1,16 @@
+[
+  {
+    "name": "lambda-errors",
+    "metric": "Errors",
+    "namespace": "AWS/Lambda",
+    "statistic": "Sum",
+    "period": 300,
+    "threshold": 5,
+    "comparison": "GreaterThanThreshold",
+    "evaluation_periods": 2,
+    "slack_channel": "alerts",
+    "dimensions": {
+      "FunctionName": "my-function"
+    }
+  }
+]
