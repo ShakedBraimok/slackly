@@ -1,0 +1,86 @@
+[
+  {
+    "name": "RDS-HighCPU",
+    "metric": "CPUUtilization",
+    "threshold": 80,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "database-alerts"
+  },
+  {
+    "name": "RDS-LowFreeableMemory",
+    "metric": "FreeableMemory",
+    "threshold": 536870912,
+    "comparison_operator": "LessThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "database-alerts"
+  },
+  {
+    "name": "RDS-LowFreeStorage",
+    "metric": "FreeStorageSpace",
+    "threshold": 10737418240,
+    "comparison_operator": "LessThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "critical-alerts"
+  },
+  {
+    "name": "RDS-HighConnections",
+    "metric": "DatabaseConnections",
+    "threshold": 80,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "database-alerts"
+  },
+  {
+    "name": "RDS-HighReadLatency",
+    "metric": "ReadLatency",
+    "threshold": 0.1,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "database-alerts"
+  },
+  {
+    "name": "RDS-HighWriteLatency",
+    "metric": "WriteLatency",
+    "threshold": 0.1,
+    "comparison_operator": "GreaterThanThreshold",
+    "period": 300,
+    "evaluation_periods": 2,
+    "namespace": "AWS/RDS",
+    "statistic": "Average",
+    "dimensions": {
+      "DBInstanceIdentifier": "my-database"
+    },
+    "slack_channel": "database-alerts"
+  }
+]
